@@ -4,7 +4,7 @@
       <table>
         <thead>
           <tr>
-            <th>
+            <th colspan="2">
               <%= flat.attr["Adresse"] %>
             </th>
           </tr>
@@ -23,20 +23,32 @@
           <% flat.attr.except("Adresse").each do |key, value| %>
             <tr>
               <td>
-                <%= "#{key}:" %>
+                <strong>
+                  <%= "#{key}:" %>
+                </strong>
+              </td>
+              <td>
                 <%= value %>
               </td>
             </tr>
           <% end %>
           <tr>
             <td>
-              Gefunden um:
+              <strong>
+                Gefunden um:
+              </strong>
+            </td>
+            <td>
               <%= l flat.created_at %>
             </td>
           </tr>
           <tr>
             <td>
-              Letztes Update:
+              <strong>
+                Letztes Update:
+              </strong>
+            </td>
+            <td>
               <%= l flat.updated_at %>
             </td>
           </tr>
