@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_185550) do
   create_table "flats", force: :cascade do |t|
     t.string "external_id", null: false
     t.string "link"
-    t.jsonb "attr"
+    t.json "attr"
     t.datetime "notified_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
