@@ -5,6 +5,7 @@ class WohnenInBerlinScraper
   URL = "#{BASE_URL}/#{FINDER_PATH}/?#{QUERY_TOKEN}"
   FLAT_CSS_FINDER = "li.tb-merkflat"
   BUTTON_LINK_CSS_FINDER = "a.org-but"
+  PRICE_REGEX = /\d*.?\d*,?\d*\s*€/
 
   attr_accessor :flats
 
@@ -45,6 +46,8 @@ class WohnenInBerlinScraper
     rel_link = flat_node.at(BUTTON_LINK_CSS_FINDER)&.attributes&.dig("href")&.value
     flat_hash["link"] = "#{BASE_URL}#{rel_link}".gsub(" ", "%20")
     flat_hash["attr"] = {}
+
+    flat_hash["attr"]["Miete"] = flat_node.at("h3").text.match(PRICE_REGEX).to_s.squish
 
     table_elements = flat_node.css("tr")
     table_elements.each do |element|
