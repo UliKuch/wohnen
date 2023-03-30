@@ -1,4 +1,4 @@
-class WohnenInBerlinScrape
+class WohnenInBerlinScraper
   BASE_URL = "https://inberlinwohnen.de"
   FINDER_PATH = "wohnungsfinder"
   QUERY_STR = "hgk38762-kV"
