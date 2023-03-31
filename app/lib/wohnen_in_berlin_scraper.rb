@@ -12,9 +12,9 @@ class WohnenInBerlinScraper
   def initialize
   end
 
-  def get_and_persist_flats
+  def scrape_and_persist
     scrape
-    persist_flats
+    create_or_update_flats
   end
 
   private
@@ -27,9 +27,9 @@ class WohnenInBerlinScraper
     end
   end
 
-  def persist_flats
+  def create_or_update_flats
     flats.each do |flat|
-      PersistFlat.new(flat).find_or_create
+      PersistFlat.new(flat).create_or_update
     end
   end
 

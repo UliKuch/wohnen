@@ -5,7 +5,7 @@ class PersistFlat
     @flat_hash = flat_hash
   end
 
-  def find_or_create
+  def create_or_update
     flat = Flat.where(external_id: flat_hash["external_id"]).first_or_initialize
 
     flat.link = flat_hash["link"]
