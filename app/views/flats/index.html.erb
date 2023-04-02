@@ -26,7 +26,7 @@
           </tr>
           <tr>
             <td>
-              <%= link_to "Maps-Link", google_maps_link(flat.attr["Adresse"]), {target: "_blank", class: "text-blue-500 hover:text-blue-700"} %>
+              <%= link_to "Maps-Link", flat.google_maps_link, {target: "_blank", class: "text-blue-500 hover:text-blue-700"} %>
             </td>
           </tr>
           <% flat.attr.except("Adresse").each do |key, value| %>
