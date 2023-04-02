@@ -9,6 +9,10 @@ class WohnenInBerlinScraper
 
   attr_accessor :flats
 
+  def self.scrape_and_persist
+    new.scrape_and_persist
+  end
+
   def initialize
   end
 
