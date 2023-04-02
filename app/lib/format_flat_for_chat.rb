@@ -1,12 +1,12 @@
 class FormatFlatForChat
   attr_reader :flat
 
-  def self.format(flat_id)
-    new(flat_id).format
+  def self.format(flat)
+    new(flat).format
   end
 
-  def initialize(flat_id)
-    @flat = Flat.find(flat_id)
+  def initialize(flat)
+    @flat = flat
   end
 
   def format
