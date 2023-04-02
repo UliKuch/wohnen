@@ -31,7 +31,7 @@ class WohnenInBerlinScraper
 
   def create_or_update_flats
     flats.each do |flat|
-      PersistFlat.new(flat).create_or_update
+      PersistFlat.create_or_update(flat)
     end
   end
 
