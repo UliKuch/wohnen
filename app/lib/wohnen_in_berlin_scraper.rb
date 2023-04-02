@@ -9,11 +9,9 @@ class WohnenInBerlinScraper
 
   attr_accessor :flats
 
-  def self.scrape_and_persist
+  def self.scrape_and_notify
     new.scrape_and_persist
-  end
-
-  def initialize
+    NotifyAboutNewFlats.notify
   end
 
   def scrape_and_persist
