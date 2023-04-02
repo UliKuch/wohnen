@@ -1,8 +1,5 @@
 class FlatsController < ApplicationController
-  
-  # TODO: Add basic auth
-  
   def index
-    @flats = Flat.all
+    @flats = Flat.order(id: :desc)
   end
 end
