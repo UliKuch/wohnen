@@ -1,8 +1,7 @@
 class WohnenInBerlinScraper
   BASE_URL = "https://inberlinwohnen.de"
   FINDER_PATH = "wohnungsfinder"
-  QUERY_TOKEN = "dDn38787-Pc"
-  URL = "#{BASE_URL}/#{FINDER_PATH}/?#{QUERY_TOKEN}"
+  URL = "#{BASE_URL}/#{FINDER_PATH}/?#{ENV["QUERY_TOKEN"]}"
   FLAT_CSS_FINDER = "li.tb-merkflat"
   BUTTON_LINK_CSS_FINDER = "a.org-but"
   PRICE_REGEX = /\d*.?\d*,?\d*\s*€/
