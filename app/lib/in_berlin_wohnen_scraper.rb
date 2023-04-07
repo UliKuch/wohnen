@@ -1,4 +1,4 @@
-class WohnenInBerlinScraper
+class InBerlinWohnenScraper
   BASE_URL = "https://inberlinwohnen.de"
   FINDER_PATH = "wohnungsfinder"
   URL = "#{BASE_URL}/#{FINDER_PATH}/?#{ENV["QUERY_TOKEN"]}"

@@ -17,7 +17,7 @@ class FormatFlatForChat
 
       Maps: #{flat.google_maps_link}
 
-      Aktuelle Suche: #{WohnenInBerlinScraper::URL}
+      Aktuelle Suche: #{InBerlinWohnenScraper::URL}
     FLAT
   end
 end
