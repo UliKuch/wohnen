@@ -1,15 +1,11 @@
-class FormatFlatForChat
+class FlatFormatter
   attr_reader :flat
 
-  def self.format(flat)
-    new(flat).format
-  end
-
-  def initialize(flat)
+  def initialize(flat:)
     @flat = flat
   end
 
-  def format
+  def format_for_chat
     <<~FLAT
       Neues Angebot!
       #{flat.link}

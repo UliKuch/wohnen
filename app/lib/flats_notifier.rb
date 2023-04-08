@@ -18,7 +18,7 @@ class FlatsNotifier
   private
 
   def notify_about(flat)
-    message = FormatFlatForChat.format(flat)
+    message = FlatFormatter.new(flat: flat).format_for_chat
 
     if SendToTelegram.send_to_chat(message: message)
       flat.update_column(:notified_at, Time.zone.now)
