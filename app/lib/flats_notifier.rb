@@ -9,9 +9,7 @@ class FlatsNotifier
 
   def notify_about_new_flats
     flats.each do |flat|
-      next if flat.notified_at.present?
-      notify_about(flat)
-      @notifications_sent += 1
+      notify_about(flat) if flat.notified_at.blank?
     end
   end
 
@@ -22,6 +20,7 @@ class FlatsNotifier
 
     if TelegramSender.new(message: message).send_to_chat
       flat.update_column(:notified_at, Time.zone.now)
+      @notifications_sent += 1
     end
   end
 end
