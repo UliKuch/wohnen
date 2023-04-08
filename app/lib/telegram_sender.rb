@@ -1,11 +1,7 @@
-class SendToTelegram
+class TelegramSender
   SEND_MESSAGE_URL = "https://api.telegram.org/bot#{ENV["TELEGRAM_BOT_TOKEN"]}/sendMessage"
 
   attr_reader :message
-
-  def self.send_to_chat(message:)
-    new(message: message).send_to_chat
-  end
 
   def initialize(message:)
     @message = message
