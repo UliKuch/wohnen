@@ -6,33 +6,17 @@ class InBerlinWohnenScraper
   BUTTON_LINK_CSS_FINDER = "a.org-but"
   PRICE_REGEX = /\d*.?\d*,?\d*\s*€/
 
-  attr_accessor :flat_data_collection
-
-  def self.scrape_and_notify
-    new.scrape_and_persist
-    NotifyAboutNewFlats.notify
-  end
-
-  def scrape_and_persist
-    scrape
-    create_or_update_flats
-  end
-
-  private
+  attr_accessor :flats_data
 
   def scrape
-    flats_results = get_raw_flats_data
+    raw_flats_data = get_raw_flats_data
 
-    @flat_data_collection = flats_results.map do |flat_node|
+    @flats_data = raw_flats_data.map do |flat_node|
       read_flat_data_from_node(flat_node)
     end
   end
 
-  def create_or_update_flats
-    flat_data_collection.each do |flat|
-      PersistFlat.create_or_update(flat)
-    end
-  end
+  private
 
   def get_raw_flats_data
     uri = URI.parse(URL)

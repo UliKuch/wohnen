@@ -1,20 +1,28 @@
 class PersistFlat
-  attr_reader :flat_hash
+  attr_reader :flats_data
+  attr_accessor :flats
 
-  def self.create_or_update(flat_hash)
-    new(flat_hash).create_or_update
+  def initialize(flats_data:)
+    @flats_data = flats_data
+    @flats = []   
   end
 
-  def initialize(flat_hash)
-    @flat_hash = flat_hash
+  def create_or_update_flats
+    flats_data.each do |flat_data|
+      create_or_update(flat_data)
+    end
   end
 
-  def create_or_update
-    flat = Flat.where(external_id: flat_hash["external_id"]).first_or_initialize
+  private
 
-    flat.link = flat_hash["link"]
-    flat.attr = flat_hash["attr"]
+  def create_or_update(flat_data)
+    flat = Flat.where(external_id: flat_data["external_id"]).first_or_initialize
 
-    flat.save
+    flat.link = flat_data["link"]
+    flat.attr = flat_data["attr"]
+
+    if flat.save
+      flats << flat
+    end
   end
 end

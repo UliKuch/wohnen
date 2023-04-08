@@ -1,11 +1,13 @@
 class NotifyAboutNewFlats
-  def self.notify
-    new.notify
+  attr_reader :flats
+
+  def initialize(flats:)
+    @flats = flats
   end
 
   def notify
-    Flat.where(notified_at: nil).find_each do |flat|
-      notify_about(flat)
+    flats.each do |flat|
+      notify_about(flat) if flat.notified_at.blank?
     end
   end
 
