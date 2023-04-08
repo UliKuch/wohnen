@@ -16,7 +16,7 @@ class ScraperRunner
 
     scraper.scrape
     persister.create_or_update_flats
-    notifier.notify
+    notifier.notify_about_new_flats
 
     scraper_run.update_column(:ended_at, Time.zone.now)
   rescue => error
@@ -34,10 +34,10 @@ class ScraperRunner
   end
 
   def persister
-    @persister ||= PersistFlat.new(flats_data: scraper.flats_data)
+    @persister ||= FlatsPersister.new(flats_data: scraper.flats_data)
   end
 
   def notifier
-    @notifier ||= NotifyAboutNewFlats.new(flats: persister.flats)
+    @notifier ||= FlatsNotifier.new(flats: persister.flats)
   end
 end

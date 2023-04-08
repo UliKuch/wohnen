@@ -1,11 +1,11 @@
-class NotifyAboutNewFlats
+class FlatsNotifier
   attr_reader :flats
 
   def initialize(flats:)
     @flats = flats
   end
 
-  def notify
+  def notify_about_new_flats
     flats.each do |flat|
       notify_about(flat) if flat.notified_at.blank?
     end
