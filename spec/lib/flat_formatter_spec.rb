@@ -25,7 +25,7 @@ RSpec.describe FlatFormatter do
     }
 
     before do
-      allow(ENV).to receive(:[]).with("QUERY_TOKEN").and_return("abc12345-Ab")
+      stub_const("InBerlinWohnenScraper::URL", "https://inberlinwohnen.de/wohnungsfinder/?abc12345-Ab")
     end
 
     it "formats message" do
