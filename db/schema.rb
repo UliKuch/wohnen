@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_29_185550) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_08_070446) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_185550) do
     t.string "link"
     t.json "attr"
     t.datetime "notified_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "scraper_runs", force: :cascade do |t|
+    t.datetime "started_at"
+    t.datetime "ended_at"
+    t.datetime "errored_at"
+    t.text "backtrace"
+    t.text "error_message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

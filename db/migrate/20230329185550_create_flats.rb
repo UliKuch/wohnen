@@ -5,7 +5,6 @@ class CreateFlats < ActiveRecord::Migration[7.0]
       t.string :link
       t.json :attr
       t.datetime :notified_at
-
       t.timestamps
     end
   end

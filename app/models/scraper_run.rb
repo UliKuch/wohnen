@@ -1,0 +1,2 @@
+class ScraperRun < ApplicationRecord
+end
