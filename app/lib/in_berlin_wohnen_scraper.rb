@@ -37,7 +37,7 @@ class InBerlinWohnenScraper
     table_elements = flat_node.css("tr")
     table_elements.each do |element|
       key = element.at("th").children.text.gsub(":", "").strip
-      value = element.at("td").text
+      value = element.at("td").text.squish
       flat_data["attr"][key] = value
     end
 
