@@ -18,7 +18,11 @@ class ScraperRunner
     persister.create_or_update_flats
     notifier.notify_about_new_flats
 
-    scraper_run.update_column(:ended_at, Time.zone.now)
+    scraper_run.update_columns(
+      ended_at: Time.zone.now,
+      flats_found: persister.flats.count,
+      notifications_sent: notifier.notifications_sent
+    )
   rescue => error
     scraper_run.update_columns(
       errored_at: Time.zone.now,

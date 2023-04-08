@@ -27,6 +27,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_070446) do
     t.datetime "started_at"
     t.datetime "ended_at"
     t.datetime "errored_at"
+    t.integer "flats_found"
+    t.integer "notifications_sent"
     t.text "backtrace"
     t.text "error_message"
     t.datetime "created_at", null: false
