@@ -22,8 +22,8 @@ RSpec.describe InBerlinWohnenScraper do
     
     context "with data present" do
       before do
-        stub_request(:get, /https:\/\/inberlinwohnen\.de\/wohnungsfinder/).
-          to_return(status: 200, body: raw_flats_data)
+        stub_request(:get, /https:\/\/inberlinwohnen\.de\/wohnungsfinder/)
+          .to_return(status: 200, body: raw_flats_data)
       end
 
       it "formats flat data" do
@@ -34,8 +34,8 @@ RSpec.describe InBerlinWohnenScraper do
 
     context "without data present" do
       before do
-        stub_request(:get, /https:\/\/inberlinwohnen\.de\/wohnungsfinder/).
-          to_return(status: 200, body: nil)
+        stub_request(:get, /https:\/\/inberlinwohnen\.de\/wohnungsfinder/)
+          .to_return(status: 200, body: nil)
       end
 
       it "returns empty array" do
