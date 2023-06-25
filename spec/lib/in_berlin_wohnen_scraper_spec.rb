@@ -19,7 +19,7 @@ RSpec.describe InBerlinWohnenScraper do
         second_external_id: second_external_id
       )
     }
-    
+
     context "with data present" do
       before do
         stub_request(:get, /https:\/\/inberlinwohnen\.de\/wohnungsfinder/)

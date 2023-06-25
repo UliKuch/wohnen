@@ -14,7 +14,7 @@ class TelegramSender
       text: message
     }.to_json
     headers = {
-      "Content-Type"=>"application/json"
+      "Content-Type" => "application/json"
     }
 
     res = Faraday.post(uri, body, headers)
