@@ -8,6 +8,8 @@ class FlatsPersister
   end
 
   def create_or_update_flats
+    return if flats_data.blank?
+
     flats_data.each do |flat_data|
       create_or_update_flat(flat_data)
     end

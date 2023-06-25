@@ -16,5 +16,13 @@ RSpec.describe FlatsPersister do
         .to change { Flat.count }.by(1)
       expect(subject.flats.count).to eq(2)
     end
+
+    context "without flats data" do
+      let(:formatted_flats_data) { nil }
+      it "does not raise error" do
+        expect { subject.create_or_update_flats }
+          .not_to raise_error
+      end
+    end
   end
 end
